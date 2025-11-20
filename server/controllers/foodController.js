@@ -170,22 +170,35 @@ const claimFood = async (req, res) => {
 // ---------------------------
 const getMyDonations = async (req, res) => {
   try {
-    const foods = await FoodItem.find({ donor: req.user._id }).sort({ createdAt: -1 });
-    res.json(foods);
+     const donations = await FoodItem.find({ donor: req.user.id })
+      .populate('claimedBy', 'name email')
+      .sort({ createdAt: -1 });
+    
+    res.json(donations);
   } catch (error) {
-    res.status(500).json({ message: "Failed to fetch your donations" });
+    console.error('Get my donations error:', error);
+    res.status(500).json({ 
+      message: 'Failed to fetch donations',
+      error: error.message 
+    });
   }
 };
-
 // ---------------------------
 // RECIPIENT: view claimed items
 // ---------------------------
 const getMyClaims = async (req, res) => {
   try {
-    const foods = await FoodItem.find({ claimedBy: req.user._id }).sort({ claimedAt: -1 });
-    res.json(foods);
+  const claims = await FoodItem.find({ claimedBy: req.user.id })
+      .populate('donor', 'name email')
+      .sort({ claimedAt: -1 });
+    
+    res.json(claims);
   } catch (error) {
-    res.status(500).json({ message: "Failed to fetch your claimed items" });
+    console.error('Get my claims error:', error);
+    res.status(500).json({ 
+      message: 'Failed to fetch claims',
+      error: error.message 
+    });
   }
 };
 

@@ -37,10 +37,10 @@ router.delete("/:id", protect, requireRole("donor"), deleteFoodItem);
 // POST /api/food/:id/claim - recipient claims food
 router.post("/:id/claim", protect, requireRole("recipient"), claimFood);
 
-// GET /api/food/donor/my-items - donor sees own donations
-router.get("/donor/my-items", protect, requireRole("donor"), getMyDonations);
+// GET /api/food/my-donations - donor sees own donations
+router.get("/my-donations", protect, requireRole("donor"), getMyDonations);
 
-// GET /api/food/recipient/my-claims - recipient sees what they claimed
-router.get("/recipient/my-claims", protect, requireRole("recipient"), getMyClaims);
+// GET /api/food/my-claims - recipient sees what they claimed
+router.get("/my-claims", protect, requireRole("recipient"), getMyClaims);
 
 module.exports = router;
