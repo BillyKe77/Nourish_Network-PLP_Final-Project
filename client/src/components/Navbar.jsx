@@ -12,17 +12,17 @@ export function Navbar() {
   }
 
   return (
-    <nav className="bg-gradient-to-r from-green-600 to-emerald-700 text-white shadow-lg">
+    <nav className="bg-gradient-to-r from-orange-500 to-amber-500 text-white shadow-lg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo and Brand */}
           <div className="flex items-center space-x-8">
             <Link 
               to="/" 
-              className="flex items-center space-x-2 text-xl font-bold hover:text-green-100 transition-colors"
+              className="flex items-center space-x-2 text-xl font-bold hover:text-orange-100 transition-colors"
             >
               <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
-                <span className="text-green-600 font-bold text-sm">N</span>
+                <span className="text-orange-600 font-bold text-sm">N</span>
               </div>
               <span>NourishNetwork</span>
             </Link>
@@ -67,7 +67,7 @@ export function Navbar() {
                 {/* User Info with Role Badge */}
                 <div className="hidden sm:flex items-center space-x-3 bg-white/10 px-3 py-1 rounded-full">
                   <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
-                    <span className="text-green-600 font-bold text-sm">
+                    <span className="text-orange-600 font-bold text-sm">
                       {user.name?.charAt(0).toUpperCase()}
                     </span>
                   </div>
@@ -75,8 +75,8 @@ export function Navbar() {
                     <span className="text-sm font-medium">{user.name}</span>
                     <span className={`text-xs px-2 py-0.5 rounded-full ${
                       user.role === 'donor' 
-                        ? 'bg-blue-500 text-white' 
-                        : 'bg-orange-500 text-white'
+                        ? 'bg-amber-600 text-white' 
+                        : 'bg-yellow-600 text-white'
                     }`}>
                       {user.role === 'donor' ? '🥗 Donor' : '👥 Recipient'}
                     </span>
@@ -112,7 +112,7 @@ export function Navbar() {
                 </Link>
                 <Link 
                   to="/register" 
-                  className="bg-white text-green-700 hover:bg-green-100 px-4 py-2 rounded-lg transition-colors font-medium"
+                  className="bg-white text-orange-600 hover:bg-orange-50 px-4 py-2 rounded-lg transition-colors font-medium"
                 >
                   Sign Up
                 </Link>
@@ -140,7 +140,7 @@ export function Navbar() {
             {user && user.role === "recipient" && (
               <>
                 <MobileNavLink to="/food" icon="🔍">
-                  Find Food
+                  Find Donations
                 </MobileNavLink>
                 <MobileNavLink to="/my-claims" icon="📋">
                   My Claims
@@ -167,7 +167,7 @@ function NavLink({ to, icon, children }) {
       className="flex items-center space-x-1 px-3 py-2 rounded-lg hover:bg-white/20 transition-colors group"
     >
       <span className="text-lg">{icon}</span>
-      <span className="font-medium group-hover:text-green-100">{children}</span>
+      <span className="font-medium group-hover:text-orange-100">{children}</span>
     </Link>
   );
 }

@@ -8,7 +8,7 @@ export default function FoodPost() {
     description: "",
     location: "",
     contactInfo: "",
-    image: null, // Changed from imageUrl to image (file object)
+    image: null, 
     expiresAt: ""
   });
   const [imagePreview, setImagePreview] = useState("");
