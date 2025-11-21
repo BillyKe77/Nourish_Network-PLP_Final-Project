@@ -1,10 +1,10 @@
-# 🍽️ Nourish Network
+# Nourish Network
 
 A full-stack web application that connects food donors with recipients to reduce food waste and fight hunger in local communities. Built with the MERN stack (MongoDB, Express.js, React, Node.js) and designed to support Sustainable Development Goal 12 (Responsible Consumption and Production). 
 
 Frontend deployment link; https://nourishnetwork.netlify.app/
 
-## 🌟 Features
+## Features
 
 ### Role-Based Access
 - **Donors**: Post surplus food, manage listings, track donations
